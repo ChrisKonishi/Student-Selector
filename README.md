@@ -45,11 +45,11 @@ Processes raw student data collecting relevant information
 
 Receives a List of students of a single subejct and sort them starting with those with more priority to be enrolled.
 
-#### init(list: criteria, list: students)
+#### init(list: criteria)
 - criteria: list of student attributes to be considered, starting with the more relevant. Higher values come first.
-- students: list os Students to be sorted
 
-#### call()
+#### call( list: students)
+- students: list os Students to be sorted
 - returns: the same list, ordered according to the described behavior.
 
 
@@ -57,11 +57,11 @@ Receives a List of students of a single subejct and sort them starting with thos
 
 Decides if a student is allowed to enroll in a subject
 
-#### init(dict: students, dict: limit)
-- students: dictionary containing all students sorted, divided by subject
+#### init(dict: limit)
 - limit: dictionary containing the limit number of students, divided by subject
 
-#### call()
+#### call(dict: students)
+- students: dictionary containing all students sorted, divided by subject
 - returns: dictionary containing the limit number of students, divided by subject. But the students are updated, knowing which subjects they are allowed to enroll
 
 

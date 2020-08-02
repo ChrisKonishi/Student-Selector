@@ -13,7 +13,7 @@ class Student_reader():
 
 
     def process_data(self):
-        data = pd.read_excel(self.file)
+        data = pd.read_csv(self.file)
 
         sub_student = {}
         for i in self.subjects:
@@ -26,9 +26,9 @@ class Student_reader():
 
             #aqui eh a atribuicao de dados
             for att in self.attributes.keys():
-                stt_dic[att] = data[self.attributes[att][row]]
+                stt_dic[att] = data[self.attributes[att]][row]
 
-            att["Ordem chegada"] = row + 1
+            stt_dic["Ordem chegada"] = row + 1
             #fim da coleta de dados
 
             student = Student(stt_dic)
@@ -37,11 +37,18 @@ class Student_reader():
 
             #decidir materia(s)
             for i in self.subjects:
-                if i in stt_dic["materia inscrita"]:
+                if i in stt_dic["matéria inscrita"]:
                     sub_student[i].append(student)
 
 
         return all_student, sub_student
+
+
+    def get_all_students(self):
+        return self.all_student
+
+    def get_student_subject(self):
+        return self.subejct_student
 
 
         
