@@ -25,6 +25,8 @@ class Student_reader():
             stt_dic = {}
 
             #aqui eh a atribuicao de dados
+            identifier = "identificador do aluno"
+
             for att in self.attributes.keys():
                 stt_dic[att] = data[self.attributes[att]][row]
 
@@ -37,7 +39,7 @@ class Student_reader():
 
             #decidir materia(s)
             for i in self.subjects:
-                if i in stt_dic["matéria inscrita"]:
+                if i in stt_dic["matéria inscrita"] and not(identifier in self.ignore[i]):
                     sub_student[i].append(student)
 
 
