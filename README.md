@@ -1,4 +1,4 @@
-# Student Selecter
+# Student Selector
 Project for student selection for Projeto Ales
 
 # Required libraries
@@ -29,9 +29,9 @@ Wraps all relevant data relateng to a single student
 Processes raw student data collecting relevant information
 
 #### init(str: file, list: subjects, list: attributes, dict: ignore)
-- file: csv file directory with students data
+- file: .csv (or .xlxs?) file directory with students data
 - subjects: list of subjects, as they will be written
-- attributes: which attributes should be collected, written as dictionry keys
+- attributes: which attributes should be collected, written as dictionary keys to the excel coluumn
 - ignore: dictionary with subject names as keys and contains lists of students to be ignored
 
 #### method: get_all_students()
