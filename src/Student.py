@@ -16,3 +16,11 @@ class Student():
         if self.approved_subj == []:
             return False
         return True
+
+    def __str__(self):
+        cont = ""
+
+        for i in self.data.keys():
+            cont += i + ':' + str(self.data[i])
+
+        return cont
