@@ -1,4 +1,4 @@
-# Student Selecter
+# Student Selector
 Project for student selection for Projeto Ales
 
 # Required libraries
