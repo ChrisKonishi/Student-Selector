@@ -68,7 +68,7 @@ Decides if a student is allowed to enroll in a subject
 
 ## Writer
 
-Writes a .xlxs file with all approved students, and approved by subject
+Writes a .xlxs file with all approved students and by subject
 
 #### init(Student_reader: students, str: path)
 - students: contains all students approved and not approved
