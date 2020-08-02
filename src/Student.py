@@ -21,6 +21,6 @@ class Student():
         cont = ""
 
         for i in self.data.keys():
-            cont += i + ':' + str(self.data[i])
+            cont += i + ':' + str(self.data[i]) + '\n'
 
         return cont
