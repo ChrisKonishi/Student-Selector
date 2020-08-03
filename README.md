@@ -1,5 +1,5 @@
 # Student Selector
-Project for student selection for Projeto Ales
+Student selection project for Projeto Ales
 
 ---
 
