@@ -14,7 +14,7 @@ class Student_prioritizer():
     def __init__(self, criteria):
         self.criteria = criteria
 
-    def __call__(self, students)
+    def __call__(self, students):
         for i in reversed(self.criteria):
             students.sort(key=lambda x: x.data[i[0]], reverse=i[1])
 
