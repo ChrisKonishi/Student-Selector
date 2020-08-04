@@ -1,5 +1,3 @@
-class Student_prioritizer():
-
 '''
 Receives a list of students of a single subejct and sort them, starting with those with more priority to be enrolled.
 
@@ -10,7 +8,9 @@ call( list: students)
 students: list os Students to be sorted
 returns: the same list, ordered according to the described behavior.
 '''
-    
+
+class Student_prioritizer():
+
     def __init__(self, criteria):
         self.criteria = criteria
 
