@@ -46,9 +46,9 @@ Processes raw student data, collecting relevant information
 
 ---
 
-## Student_prioritizer
+## Student_sorter
 
-Receives a list of students of a single subejct and sort them, starting with those with more priority to be enrolled.
+Receives a list of students of a single subejct and sorts them, starting with those with more priority to be enrolled.
 
 #### init(list: criteria)
 - criteria: list of tuples containing student attributes to be considered and if it is reversed or not. e.g. [("age", True), ("public school", False)]

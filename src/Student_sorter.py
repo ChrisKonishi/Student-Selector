@@ -1,5 +1,5 @@
 '''
-Receives a list of students of a single subejct and sort them, starting with those with more priority to be enrolled.
+Receives a list of students of a single subejct and sorts them, starting with those with more priority to be enrolled.
 
 init(list: criteria)
 criteria: list of tuples containing student attributes to be considered and if it is reversed or not. e.g. [("age", True), ("public school", False)]
@@ -9,7 +9,7 @@ students: list os Students to be sorted
 returns: the same list, ordered according to the described behavior.
 '''
 
-class Student_prioritizer():
+class Student_sorter():
 
     def __init__(self, criteria):
         self.criteria = criteria
