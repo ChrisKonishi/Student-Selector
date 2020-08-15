@@ -3,11 +3,10 @@ import pandas as pd
 from Student import Student
 
 class Student_reader():
-    def __init__(self, file, subjects, attributes, ignore):
+    def __init__(self, file, subjects, attributes):
         self.file = file
         self.subjects = subjects
         self.attributes = attributes
-        self.ignore = ignore
 
         self.all_student, self.subejct_student = self.process_data()
 
@@ -23,14 +22,37 @@ class Student_reader():
 
         for row in range(len(data)):
             stt_dic = {}
+            materias = []
 
             #aqui eh a atribuicao de dados
-            identifier = "identificador do aluno"
 
             for att in self.attributes.keys():
-                stt_dic[att] = data[self.attributes[att]][row]
+                aux = None
+
+                if att == "Era Ales":
+                    aux = data[self.attributes[att]][row] == "Sim"
+
+                elif att == "É Particular":
+                    aux = data[self.attributes[att]][row] == "Privada"
+
+                elif att == "É bolsista":
+                    aux = data[self.attributes[att]][row] == "Sim"
+
+                elif att == "É de Campinas":
+                    aux = data[self.attributes[att]][row] == "Sim"
+
+                elif att in self.subjects:
+                    if data[self.attributes[att]][row] == "Sim":
+                        materias.append(att)
+                    continue
+
+                else:
+                    aux = data[self.attributes[att]][row]
+
+                stt_dic[att] = aux
 
             stt_dic["Ordem chegada"] = row + 1
+            stt_dic["Matérias"] = materias
             #fim da coleta de dados
 
             student = Student(stt_dic)
@@ -39,7 +61,7 @@ class Student_reader():
 
             #decidir materia(s)
             for i in self.subjects:
-                if i in stt_dic["matéria inscrita"] and not(identifier in self.ignore[i]):
+                if i in stt_dic["Matérias"]:
                     sub_student[i].append(student)
 
 
