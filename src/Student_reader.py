@@ -12,7 +12,13 @@ class Student_reader():
 
 
     def process_data(self):
-        data = pd.read_csv(self.file)
+
+        #isso aqui eh gambiarra, mas preguiça de deixar elegante
+        try:
+            data = pd.read_csv(self.file)
+        except:
+            data = pd.read_excel(self.file)
+        
 
         sub_student = {}
         for i in self.subjects:
