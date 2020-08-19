@@ -57,8 +57,8 @@ class Student_reader():
 
                 stt_dic[att] = aux
 
-            stt_dic["Ordem chegada"] = row + 1
-            stt_dic["Matérias"] = materias
+            stt_dic["Ordem de chegada"] = row + 1
+            stt_dic["Matérias inscritas"] = materias
             #fim da coleta de dados
 
             student = Student(stt_dic)
@@ -67,7 +67,7 @@ class Student_reader():
 
             #decidir materia(s)
             for i in self.subjects:
-                if i in stt_dic["Matérias"]:
+                if i in stt_dic["Matérias inscritas"]:
                     sub_student[i].append(student)
 
 
@@ -77,7 +77,7 @@ class Student_reader():
     def get_all_students(self):
         return self.all_student
 
-    def get_student_subject(self):
+    def get_students_subject(self):
         return self.subejct_student
 
 

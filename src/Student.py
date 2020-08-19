@@ -10,7 +10,17 @@ class Student():
             self.approved_subj.append(subject)
 
     def get_approved_subejcts(self):
-        return self.approved_subj
+        if self.approved_subj == []:
+            return "Nenhuma"
+
+        st = ""
+        for i, sub in enumerate(self.approved_subj):
+            if i != len(self.approved_subj) - 1:
+                st += sub + ", "
+                continue
+            st += sub
+
+        return st
 
     def is_approved(self):
         if self.approved_subj == []:
@@ -22,5 +32,7 @@ class Student():
 
         for i in self.data.keys():
             cont += i + ': ' + str(self.data[i]) + '\n'
+        
+        cont += "Aprovações: " + str(self.approved_subj) + '\n'
 
         return cont

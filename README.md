@@ -33,7 +33,7 @@ Wraps all relevant data related to a single student
 Processes raw student data, collecting relevant information
 
 #### init(str: file, list: subjects, list: attributes, dict: ignore)
-- file: .csv ~~(or .xlxs?)~~ file directory with students data
+- file: .csv or .xlsx file directory with students data
 - subjects: list of subjects, as they will be written
 - attributes: which attributes should be collected, written as dictionary keys to the excel coluumn
 - ignore: dictionary with subject names as keys, containing lists of students to be ignored
@@ -76,9 +76,12 @@ Decides if a student is allowed to enroll in a subject
 
 Writes a .xlxs file with all approved students and subject classes
 
-#### init(Student_reader: students, str: path)
+#### init(Student_reader: students, str: path, list:subjects)
 - students: contains all students approved and not approved
-- path: directory to save the file
+- path: directory to save the file (containing filename)
+- subjects: list with the subject names
 
+#### call()
+writes an excel file (directory + name in path) with all students sorted, approved (or not) and divided by subject
 
 
