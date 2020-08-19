@@ -8,6 +8,14 @@ Pandas
 
 ---
 
+# Running
+- Download the code
+- Keep the same folder structure
+- Get the candidates data (.csv or .xlsx)
+- Use the Jupyter Notebook "Executar.ipynb" to set up your parameters and run the code
+
+---
+
 # Classes
 
 ## Student
