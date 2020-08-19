@@ -19,11 +19,22 @@ class Writer:
         self.exwriter = pd.ExcelWriter(path, engine='xlsxwriter')
 
     def __call__(self):
-        #main sheet
-        gen_data = self.__emptydict__()
+
+        #main page
+        self.__to_writer__(self.all_students, "Todos os incritos")
         
+        
+        #classes by subject
+        for i in self.subjects:
+            self.__to_writer__(self.subj_students[i], i)
+
+        self.exwriter.save()
+        
+
+    def __to_writer__(self, students, sheet_name):
+        gen_data = self.__emptydict__()
         #read data
-        for i in self.all_students:
+        for i in students:
             for j in i.data.keys():
                 gen_data[j].append(i.data[j])
             gen_data[APROVACAO].append(i.get_approved_subejcts())
@@ -32,17 +43,11 @@ class Writer:
         gen_data = pd.DataFrame(gen_data)
         gen_data.to_excel(
             self.exwriter,
-            sheet_name="Todos os Alunos",
+            sheet_name=sheet_name,
             index=False
         )
-        gen_data.to_excel(
-            self.exwriter,
-            sheet_name="sheet1",
-            index=False
-        )
+        self.__adjust_width__(sheet_name, gen_data)
 
-        self.exwriter.save()
-        
 
 
     def __emptydict__(self):
@@ -53,5 +58,17 @@ class Writer:
         ret[APROVACAO] = []
 
         return ret
+
+
+    def __adjust_width__(self, sheet, df):
+        writer = self.exwriter
+        worksheet = writer.sheets[sheet]  # pull worksheet object
+        for idx, col in enumerate(df):  # loop through all columns
+            series = df[col]
+            max_len = max((
+                series.astype(str).map(len).max(),  # len of largest item
+                len(str(series.name))  # len of column name/header
+                )) + 1  # adding a little extra space
+            worksheet.set_column(idx, idx, max_len)  # set column width
 
     
