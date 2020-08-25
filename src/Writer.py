@@ -72,6 +72,8 @@ class Writer:
                 series.astype(str).map(len).max(),  # len of largest item
                 len(str(series.name))  # len of column name/header
                 )) + 1  # adding a little extra space
+            max_len = min(60, max_len)
             worksheet.set_column(idx, idx, max_len)  # set column width
+            
 
     
