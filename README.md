@@ -31,6 +31,12 @@ Wraps all relevant data related to a single student
 #### method: get_approved_subejcts()
 - returns: list containing all approved subjects
 
+#### method: get_waiting_list()
+- returns: list containing all subjects in which the student was sent to the waiting list
+
+#### method: approve(str: subject)
+- subject: name of a subject in which the student was sent to the waiting list
+
 #### method: approve(str: subject)
 - subject: name of a subject in which the student is allowed to enroll
 
@@ -69,7 +75,7 @@ Receives a list of students of a single subejct and sorts them, starting with th
 
 ## Approver
 
-Decides if a student is allowed to enroll in a subject
+Decides if a student is allowed to enroll in a subject or if they need to go to the waiting list
 
 #### init(dict: limit)
 - limit: dictionary containing the limit number of students, divided by subject

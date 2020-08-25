@@ -7,6 +7,7 @@ init(Student_reader: students, str: path)
     path: directory to save the file
 '''
 APROVACAO = "Aprovações"
+ESPERA = "Lista de espera"
 
 import pandas as pd
 
@@ -38,6 +39,7 @@ class Writer:
             for j in i.data.keys():
                 gen_data[j].append(i.data[j])
             gen_data[APROVACAO].append(i.get_approved_subejcts())
+            gen_data[ESPERA].append(i.get_waiting_list())
 
         #dataframe and to excel
         gen_data = pd.DataFrame(gen_data)
@@ -56,6 +58,7 @@ class Writer:
             ret[i] = []
 
         ret[APROVACAO] = []
+        ret[ESPERA] = []
 
         return ret
 

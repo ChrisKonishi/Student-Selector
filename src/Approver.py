@@ -14,13 +14,12 @@ class Approver():
 
     def __call__(self, students):
         for i in self.limit.keys():
-            for j in range(self.limit[i]):
-                
-                try:
+            for j in range(len(students[i])):
+                if j < self.limit[i]:
                     students[i][j].approve(i)
 
-                except IndexError:
-                    break
-                
+                else:
+                    students[i][j].wait(i)
+
         return students
 
