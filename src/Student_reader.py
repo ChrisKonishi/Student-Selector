@@ -3,10 +3,11 @@ import pandas as pd
 from Student import Student
 
 class Student_reader():
-    def __init__(self, file, subjects, attributes):
+    def __init__(self, file, subjects, attributes, ignore):
         self.file = file
         self.subjects = subjects
         self.attributes = attributes
+        self.ignore = ignore
 
         self.all_student, self.subejct_student = self.process_data()
 
@@ -58,6 +59,7 @@ class Student_reader():
                 stt_dic[att] = aux
 
             stt_dic["Ordem de chegada"] = row + 1
+            stt_dic["Ignorar"] = stt_dic["ID"] in self.ignore
             stt_dic["Matérias inscritas"] = materias
             #fim da coleta de dados
 
