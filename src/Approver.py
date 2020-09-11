@@ -8,6 +8,8 @@ call(dict: students)
 students: dictionary containing all students sorted, divided by subject
 returns: dictionary containing the students, divided by subject. The students are updated, marking in which subjects they are allowed to enroll
 '''
+
+
 class Approver():
     def __init__(self, limit):
         self.limit = limit
@@ -30,4 +32,3 @@ class Approver():
                     students[i][j].wait(i)
 
         return students
-

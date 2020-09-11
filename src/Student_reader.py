@@ -2,6 +2,7 @@ import pandas as pd
 
 from Student import Student
 
+
 class Student_reader():
     def __init__(self, file, subjects, attributes, ignore):
         self.file = file
@@ -11,15 +12,13 @@ class Student_reader():
 
         self.all_student, self.subejct_student = self.process_data()
 
-
     def process_data(self):
 
-        #isso aqui eh gambiarra, mas preguiça de deixar elegante
+        # isso aqui eh gambiarra, mas preguiça de deixar elegante
         try:
             data = pd.read_csv(self.file)
         except:
             data = pd.read_excel(self.file)
-        
 
         sub_student = {}
         for i in self.subjects:
@@ -31,7 +30,7 @@ class Student_reader():
             stt_dic = {}
             materias = []
 
-            #aqui eh a atribuicao de dados
+            # aqui eh a atribuicao de dados
 
             for att in self.attributes.keys():
                 aux = None
@@ -61,29 +60,21 @@ class Student_reader():
             stt_dic["Ordem de chegada"] = row + 1
             stt_dic["Ignorar"] = stt_dic["ID"] in self.ignore
             stt_dic["Matérias inscritas"] = materias
-            #fim da coleta de dados
+            # fim da coleta de dados
 
             student = Student(stt_dic)
 
             all_student.append(student)
 
-            #decidir materia(s)
+            # decidir materia(s)
             for i in self.subjects:
                 if i in stt_dic["Matérias inscritas"]:
                     sub_student[i].append(student)
 
-
         return all_student, sub_student
-
 
     def get_all_students(self):
         return self.all_student
 
     def get_students_subject(self):
         return self.subejct_student
-
-
-
-        
-
-        

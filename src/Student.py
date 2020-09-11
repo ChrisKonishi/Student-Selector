@@ -5,7 +5,6 @@ class Student():
         self.approved_subj = []
         self.waiting_list = []
 
-
     def approve(self, subject):
         if not(subject in self.approved_subj):
             self.approved_subj.append(subject)
@@ -37,7 +36,6 @@ class Student():
 
         return st
 
-
     def is_approved(self):
         if self.approved_subj == []:
             return False
@@ -48,7 +46,7 @@ class Student():
 
         for i in self.data.keys():
             cont += i + ': ' + str(self.data[i]) + '\n'
-        
+
         cont += "Aprovações: " + str(self.approved_subj) + '\n'
 
         return cont
